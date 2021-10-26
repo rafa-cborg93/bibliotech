@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+.edit {
+  margin-right: 15px;
+}
+.edit > i {
+  color: #d9cd26;
+}
+.lend {
+  margin-right: 15px;
+}
+.lend > i {
+  color: #80d6ff;
+}
+.delete > i {
+  color: #e35e6b;
+}

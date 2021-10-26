@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-title>
+        Novo acervo
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Titulo" [(ngModel)]="livro.titulo" name="titulo">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Autor" [(ngModel)]="livro.autor" name="autor">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Editora" [(ngModel)]="livro.editora" name="editora">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ano" [(ngModel)]="livro.ano" name="ano">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Assunto" [(ngModel)]="livro.assunto" name="assunto">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="quantidade" [(ngModel)]="livro.qtd" name="quantidade">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="createProduct()" color="primary">
+        Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

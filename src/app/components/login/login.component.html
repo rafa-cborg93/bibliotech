@@ -1,0 +1,37 @@
+<div class="login-content">
+  <mat-card class="login-card">
+    <form [formGroup]="loginForm" (submit)="login()">
+      <mat-card-header class="card-headers">
+        <mat-card-title>
+          <div class="logo-empresa">logo aqui</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-login-controls">
+        <div class="campo-login">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="userName" type="text" placeholder="username">
+          </mat-form-field>
+          <app-message text="username is required!"
+            *ngIf="loginForm.get('userName')?.errors?.required && loginForm.get('userName')?.touched"></app-message>
+        </div>
+        <div class="campo-senha">
+          <mat-form-field>
+            <input matInput formControlName="password" type="password" placeholder="password">
+          </mat-form-field>
+          <app-message text="password is required!"
+            *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched"></app-message>
+        </div>
+        <button class="login-button btn btn-primary">Entrar</button>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <div class="card-login-action-container">
+          <div class="card-login-action">
+            <div class="login-action-left"><a href="#">PRECISA DE AJUDA?</a></div>
+            <div class="login-action-right"><a routerLink="/bibliotech">REGISTRAR</a></div>
+          </div>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

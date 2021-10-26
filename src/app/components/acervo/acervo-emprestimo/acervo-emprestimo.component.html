@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-title>Novo Emprestimo</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput [(ngModel)]="livros.titulo" placeholder="Titulo" name="titulo" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="emprestimos.qtd" placeholder="quantidade" name="quantidade" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="emprestimos.dataEmprestimo" placeholder="Data de emprestimo" name="dataEmprestimo"
+        disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="emprestimos.dataDevolucao" placeholder="Data de devolução" name="dataDevolucao"
+        disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cliente" name="cliente">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="fazerEmprestimo()" color="primary">
+    Emprestar
+  </button>
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

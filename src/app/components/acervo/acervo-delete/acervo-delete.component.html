@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Excluir Acervo</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Titulo" [(ngModel)]="livro.titulo" name="titulo" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Autor" [(ngModel)]="livro.autor" name="autor" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Editora" [(ngModel)]="livro.editora" name="editora" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ano" [(ngModel)]="livro.ano" name="ano" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Assunto" [(ngModel)]="livro.assunto" name="assunto" disabled>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="deleteProduct()" color="warn">
+        Excluir
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
