@@ -12,13 +12,22 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import br.com.cborges.bibliotech.repository.UsuarioRepository;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
+	private TokenService tokenService;
+	
+	@Autowired
 	private AutenticacaoService autenticacaoService;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@Override
 	@Bean
@@ -38,10 +47,21 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.GET,"/acervos").permitAll()
 		.antMatchers(HttpMethod.GET,"/acervos/*").permitAll()
+		.antMatchers(HttpMethod.POST,"/acervos/*").permitAll()
+		.antMatchers(HttpMethod.PUT,"/acervos/*").permitAll()
+		.antMatchers(HttpMethod.DELETE,"/acervos/*").permitAll()
+		.antMatchers(HttpMethod.GET,"/emprestimos").permitAll()
+		.antMatchers(HttpMethod.GET,"/emprestimos/*").permitAll()
+		.antMatchers(HttpMethod.POST,"/emprestimos/*").permitAll()
+		.antMatchers(HttpMethod.PUT,"/emprestimos/*").permitAll()
+		.antMatchers(HttpMethod.DELETE,"/emprestimos/*").permitAll()
 		.antMatchers(HttpMethod.POST,"/login").permitAll()
+		.antMatchers("/h2-console/**").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().headers().frameOptions().sameOrigin()
+		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
 		}
 	
 	@Override
