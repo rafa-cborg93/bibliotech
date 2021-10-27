@@ -1,7 +1,7 @@
+import { AcervoService } from './../acervo.service';
 import { Livro } from '../livro.model';
 import { Component, OnInit } from '@angular/core';
 
-import { ProductsService } from '../acervo.service';
 
 @Component({
   selector: 'app-product-read',
@@ -13,11 +13,11 @@ export class ProductReadComponent implements OnInit {
   livros: Livro[]
   displayedColumns = ['id', 'titulo', 'autor', 'editora','assunto','ano','qtd', 'action']
 
-  constructor(private productService: ProductsService) { }
+  constructor(private acervoService: AcervoService) { }
 
   ngOnInit(): void {
     
-    this.productService.readLivro().subscribe(livros => {
+    this.acervoService.readLivro().subscribe(livros => {
       this.livros = livros
       console.log(livros)
     })

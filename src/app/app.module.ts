@@ -33,10 +33,11 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { ProductUpdateComponent } from './components/acervo/acervo-update/acervo-update.component';
 import { ProductDeleteComponent } from './components/acervo/acervo-delete/acervo-delete.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/signin/signin.component';
 import { MessageComponent } from './components/message/message.component';
 import { TemplateComponent } from './components/template/template.component';
 import { AcervoEmprestimoComponent } from './components/acervo/acervo-emprestimo/acervo-emprestimo.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 registerLocaleData(localePt);
@@ -57,6 +58,7 @@ registerLocaleData(localePt);
     MessageComponent,
     TemplateComponent,
     AcervoEmprestimoComponent,
+    SignupComponent,
  
     
 

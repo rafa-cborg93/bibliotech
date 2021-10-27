@@ -1,8 +1,7 @@
+import { AcervoService } from './../acervo.service';
 import { Livro } from '../livro.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { ProductsService } from '../acervo.service';
 
 @Component({
   selector: 'app-product-delete',
@@ -13,19 +12,19 @@ export class ProductDeleteComponent implements OnInit {
  
   livro: Livro;
 
-  constructor(private productService: ProductsService,
+  constructor(private acervoService: AcervoService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.productService.readByIdLivro(id).subscribe(livro => {
+    this.acervoService.readByIdLivro(id).subscribe(livro => {
       this.livro = livro
     })
   }
   deleteProduct(): void {
-    this.productService.deleteLivro(this.livro.id).subscribe(() => {
-      this.productService.showMessage('Livro excluído com sucesso!')
+    this.acervoService.deleteLivro(this.livro.id).subscribe(() => {
+      this.acervoService.showMessage('Livro excluído com sucesso!')
       this.router.navigate(['/bibliotech/livros'])
     })
   }

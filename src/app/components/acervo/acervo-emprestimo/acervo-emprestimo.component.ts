@@ -1,4 +1,4 @@
-import { ProductsService } from './../acervo.service';
+import {AcervoService } from './../acervo.service';
 import { Livro } from './../livro.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EmprestimoService } from './../emprestimo.service';
@@ -16,7 +16,7 @@ export class AcervoEmprestimoComponent implements OnInit {
   emprestimos: Emprestimo;
   livros: Livro;
 
-  constructor(private emprestimoService: EmprestimoService, private acervoService: ProductsService, private router: Router,
+  constructor(private emprestimoService: EmprestimoService, private acervoService: AcervoService, private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -33,6 +33,7 @@ export class AcervoEmprestimoComponent implements OnInit {
   }
   fazerEmprestimo():void{
     this.emprestimoService.showMessage("Emprestimo Realizado com Sucesso!")
+    this.router.navigate(['/bibliotech/livros'])
   }
   cancel():void{
     this.router.navigate(['/bibliotech/livros'])

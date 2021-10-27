@@ -1,18 +1,21 @@
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
 export class LoginComponent implements OnInit {
 
  loginForm: FormGroup;
   
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private loginService: LoginService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -22,14 +25,16 @@ export class LoginComponent implements OnInit {
     
   }
   login(){
+    
     const userName = this.loginForm.get('userName').value;
     const password = this.loginForm.get('password').value;
 
     this.loginService.autenticar(userName,password)
         .subscribe(
-          () => console.log('autenticado'),
+          () => this.router.navigate(['/bibliotech/home']),
           err => {
             console.log(err);
+            console.log(userName,password)
             this.loginForm.reset();
           }
         );

@@ -1,5 +1,5 @@
+import { AcervoService } from './../acervo.service';
 import { Livro } from '../livro.model';
-import { ProductsService } from '../acervo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -21,15 +21,15 @@ export class ProductCreateComponent implements OnInit {
   }
   
 
-  constructor(private productService: ProductsService,
+  constructor(private acervoService: AcervoService,
     private router: Router) { }
 
   ngOnInit(): void {
   }
 
   createProduct(): void {
-    this.productService.createLivro(this.livro).subscribe(() => {
-      this.productService.showMessage('Livro Criado!')
+    this.acervoService.createLivro(this.livro).subscribe(() => {
+      this.acervoService.showMessage('Livro Criado!')
       this.router.navigate(['/bibliotech/livros'])
     })
   }

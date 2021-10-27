@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class AcervoService {
 
   
   api_url =" http://localhost:8080/acervos"

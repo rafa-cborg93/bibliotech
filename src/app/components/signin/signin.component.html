@@ -3,7 +3,7 @@
     <form [formGroup]="loginForm" (submit)="login()">
       <mat-card-header class="card-headers">
         <mat-card-title>
-          <div class="logo-empresa">logo aqui</div>
+          <div class="logo-empresa">Login BiblioTech</div>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="card-login-controls">
@@ -21,14 +21,14 @@
           <app-message text="password is required!"
             *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched"></app-message>
         </div>
-        <button class="login-button btn btn-primary">Entrar</button>
+        <button type="submit" class="login-button btn btn-primary">Entrar</button>
       </mat-card-content>
       <mat-divider></mat-divider>
       <mat-card-actions>
         <div class="card-login-action-container">
           <div class="card-login-action">
-            <div class="login-action-left"><a href="#">PRECISA DE AJUDA?</a></div>
-            <div class="login-action-right"><a routerLink="/bibliotech">REGISTRAR</a></div>
+            <div class="login-action-left"><a href="https://angular.io/docs" target="blank">PRECISA DE AJUDA?</a></div>
+            <div class="login-action-right"><a routerLink="/signup">REGISTRAR</a></div>
           </div>
         </div>
       </mat-card-actions>
