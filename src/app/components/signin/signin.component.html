@@ -15,7 +15,7 @@
             *ngIf="loginForm.get('userName')?.errors?.required && loginForm.get('userName')?.touched"></app-message>
         </div>
         <div class="campo-senha">
-          <mat-form-field>
+          <mat-form-field class="full-width">
             <input matInput formControlName="password" type="password" placeholder="password">
           </mat-form-field>
           <app-message text="password is required!"

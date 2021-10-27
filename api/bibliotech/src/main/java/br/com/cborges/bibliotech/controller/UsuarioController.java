@@ -38,16 +38,6 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	/*@GetMapping
-	public List<UsuarioDto> lista(String nome){
-		if(nome==null) {
-			List<Usuario> usuarios = usuarioRepository.findAll();
-			return UsuarioDto.converter(usuarios);
-		}else {
-			List<Usuario> usuarios = usuarioRepository.findByEmail(email);
-			return UsuarioDto.converter(usuarios);
-		}
-	}*/
 	
 	@PostMapping
 	@Transactional

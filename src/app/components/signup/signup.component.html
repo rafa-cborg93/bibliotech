@@ -9,28 +9,25 @@
       <mat-card-content class="card-login-controls">
         <div class="campo-nome">
           <mat-form-field class="full-width">
-            <input matInput type="text" placeholder="Nome completo">
+            <input matInput type="text" placeholder="Nome completo" [(ngModel)]="usuario.nome">
           </mat-form-field>
         </div>
         <div class="campo-login">
           <mat-form-field class="full-width">
-            <input matInput type="text" placeholder="username">
+            <input matInput type="text" placeholder="username" [(ngModel)]="usuario.email")]>
           </mat-form-field>
         </div>
         <div class="campo-senha">
           <mat-form-field>
-            <input matInput type="password" placeholder="password">
+            <input matInput type="password" placeholder="password" ([ngModel])="usuario.senha">
           </mat-form-field>
-
-        </div>
-
+     </div>
       </mat-card-content>
-      <mat-divider></mat-divider>
       <mat-card-actions>
         <div class="card-login-action-container">
           <div class="card-login-action">
-            <button type="submit" class="login-button" color="primary">Cadastrar</button>
-            <button type="submit" class="cancel-button" color="warn">Cancelar</button>
+            <button mat-raised-button type="submit" class="login-button" color="primary" (click)="cadastrarUsuario()">Cadastrar</button>
+            <button mat-raised-button type="submit" class="cancel-button" color="warn" (click)="cancel()">Cancelar</button>
           </div>
         </div>
       </mat-card-actions>
