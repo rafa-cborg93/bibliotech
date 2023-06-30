@@ -1,29 +1,17 @@
 package br.com.cborges.bibliotech.form;
 
+import lombok.Data;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+@Data
 public class LoginForm {
 
-	private String email;
-	private String senha;
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	public UsernamePasswordAuthenticationToken converter() {
-		// TODO Auto-generated method stub
-		return new UsernamePasswordAuthenticationToken(email, senha);
-	}
-	
-	
-	
+    private String email;
+    private String senha;
+
+    public UsernamePasswordAuthenticationToken converter() {
+        return new UsernamePasswordAuthenticationToken(email, senha);
+    }
+
+
 }

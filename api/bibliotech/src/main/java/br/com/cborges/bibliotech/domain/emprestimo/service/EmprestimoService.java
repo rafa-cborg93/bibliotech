@@ -45,7 +45,7 @@ public class EmprestimoService {
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<?> deleteEmprestimo(Long id) {
+    public ResponseEntity<Object> deleteEmprestimo(Long id) {
         Optional<Emprestimo> optional = emprestimoRepository.findById(id);
         if (optional.isPresent()) {
             emprestimoRepository.deleteById(id);

@@ -34,7 +34,7 @@ public class EmprestimoController {
         return service.getEmprestimo(id);
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<?> remover(@PathVariable Long id) {
+    public ResponseEntity<Object> remover(@PathVariable Long id) {
      return service.deleteEmprestimo(id);
     }
 }

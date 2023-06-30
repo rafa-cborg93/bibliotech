@@ -47,20 +47,20 @@ public class AcervoService {
     }
 
 
-    public ResponseEntity<AcervoResponse> deleteAcervo(Long id) {
-        Optional<Acervo> optional = acervoRepository.findById(id);
-        if (optional.isPresent()) {
-            acervoRepository.deleteById(id);
-            return ResponseEntity.ok().build();
-        }
-        return ResponseEntity.notFound().build();
-    }
 
     public ResponseEntity<AcervoResponse> updateAcervo(Long id, @Valid AcervoRequest request) {
         Optional<Acervo> optional = acervoRepository.findById(id);
         if (optional.isPresent()) {
             Acervo acervo = convertRequestToEntity(request);
             return ResponseEntity.ok(new AcervoResponse(acervo));
+        }
+        return ResponseEntity.notFound().build();
+    }
+    public ResponseEntity<Object> deleteAcervo(Long id) {
+        Optional<Acervo> optional = acervoRepository.findById(id);
+        if (optional.isPresent()) {
+            acervoRepository.deleteById(id);
+            return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
     }

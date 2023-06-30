@@ -43,7 +43,7 @@ public class UsuarioService {
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<?> deleteUser(Long id) {
+    public ResponseEntity<Object> deleteUser(Long id) {
         Optional<Usuario> optional = usuarioRepository.findById(id);
         if (optional.isPresent()) {
             usuarioRepository.deleteById(id);

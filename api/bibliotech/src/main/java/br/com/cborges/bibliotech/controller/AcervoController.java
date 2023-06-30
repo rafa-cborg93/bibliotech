@@ -41,7 +41,7 @@ public class AcervoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> remover(@PathVariable Long id) {
+    public ResponseEntity<Object> remover(@PathVariable Long id) {
         return service.deleteAcervo(id);
     }
 

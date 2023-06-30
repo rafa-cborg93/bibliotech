@@ -34,7 +34,7 @@ public class UsuarioController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> remover(@PathVariable Long id){
+	public ResponseEntity<Object> remover(@PathVariable Long id){
 		return service.deleteUser(id);
 	}
 	
