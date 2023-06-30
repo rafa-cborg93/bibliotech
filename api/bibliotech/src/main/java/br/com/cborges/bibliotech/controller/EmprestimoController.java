@@ -1,74 +1,40 @@
 package br.com.cborges.bibliotech.controller;
 
-import java.net.URI;
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.cborges.bibliotech.domain.emprestimo.response.EmprestimoResponse;
+import br.com.cborges.bibliotech.domain.emprestimo.request.EmprestimoRequest;
+import br.com.cborges.bibliotech.domain.emprestimo.service.EmprestimoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.cborges.bibliotech.controller.dto.DetalheDoEmprestimoDto;
-import br.com.cborges.bibliotech.controller.dto.EmprestimoDto;
-import br.com.cborges.bibliotech.controller.form.EmprestimoForm;
-import br.com.cborges.bibliotech.entity.Emprestimo;
-import br.com.cborges.bibliotech.repository.EmprestimoRepository;
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/emprestimos")
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class EmprestimoController {
 
-	@Autowired
-	private EmprestimoRepository emprestimoRepository;
-	
-	@GetMapping
-	public List<EmprestimoDto> lista(String acervoTitulo){
-		if(acervoTitulo==null) {
-			List<Emprestimo> emprestimos = emprestimoRepository.findAll();
-			return EmprestimoDto.converter(emprestimos);
-		}else {
-			List<Emprestimo> emprestimos = emprestimoRepository.findByAcervoTitulo(acervoTitulo);
-			return EmprestimoDto.converter(emprestimos);
-		}
-	}
-	@PostMapping
-	@Transactional
-	public ResponseEntity<EmprestimoDto> cadastrar(@RequestBody @Valid EmprestimoForm form, UriComponentsBuilder uriBuilder){
-		Emprestimo emprestimo = form.converter(emprestimoRepository);
-		emprestimoRepository.save(emprestimo);
-		
-		URI uri = uriBuilder.path("/emprestimos/{id}").buildAndExpand(emprestimo.getId()).toUri();
-		return ResponseEntity.created(uri).body(new EmprestimoDto(emprestimo));
-	}
-	
-	@GetMapping("{id}")
-	public ResponseEntity<DetalheDoEmprestimoDto> detalhar(@PathVariable Long id){
-		Optional<Emprestimo> optional = emprestimoRepository.findById(id);
-		if(optional.isPresent()) {
-			return ResponseEntity.ok(new DetalheDoEmprestimoDto(optional.get()));
-		}
-		return ResponseEntity.notFound().build();
-	}
-	@DeleteMapping("{id}")
-	@Transactional
-	public ResponseEntity<?> remover(@PathVariable Long id){
-		Optional<Emprestimo> optional = emprestimoRepository.findById(id);
-		if(optional.isPresent()) {
-			emprestimoRepository.deleteById(id);
-			return ResponseEntity.ok().build();
-		}
-		return ResponseEntity.notFound().build();
-	}
+    private final EmprestimoService service;
+
+    @GetMapping
+    public List<EmprestimoResponse> lista(String acervoTitulo) {
+        return service.getEmprestimosList(acervoTitulo);
+    }
+
+    @PostMapping
+    public ResponseEntity<EmprestimoResponse> cadastrar(@RequestBody @Valid EmprestimoRequest request, UriComponentsBuilder uriBuilder) {
+        return service.createEmprestimo(request, uriBuilder);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<EmprestimoResponse> detalhar(@PathVariable Long id) {
+        return service.getEmprestimo(id);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> remover(@PathVariable Long id) {
+     return service.deleteEmprestimo(id);
+    }
 }
