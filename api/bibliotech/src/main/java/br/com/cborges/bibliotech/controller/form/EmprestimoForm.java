@@ -2,12 +2,11 @@ package br.com.cborges.bibliotech.controller.form;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import br.com.cborges.bibliotech.modelo.Acervo;
-import br.com.cborges.bibliotech.modelo.Emprestimo;
-import br.com.cborges.bibliotech.modelo.Usuario;
+import br.com.cborges.bibliotech.entity.Acervo;
+import br.com.cborges.bibliotech.entity.Emprestimo;
+import br.com.cborges.bibliotech.entity.Usuario;
 import br.com.cborges.bibliotech.repository.EmprestimoRepository;
 
 public class EmprestimoForm {

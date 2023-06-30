@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.cborges.bibliotech.modelo.Usuario;
+import br.com.cborges.bibliotech.entity.Usuario;
 import br.com.cborges.bibliotech.repository.UsuarioRepository;
 
 @Service

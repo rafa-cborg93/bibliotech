@@ -11,7 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.cborges.bibliotech.modelo.Usuario;
+import br.com.cborges.bibliotech.entity.Usuario;
 import br.com.cborges.bibliotech.repository.UsuarioRepository;
 
 

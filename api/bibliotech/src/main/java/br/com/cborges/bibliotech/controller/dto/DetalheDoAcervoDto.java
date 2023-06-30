@@ -1,6 +1,6 @@
 package br.com.cborges.bibliotech.controller.dto;
 
-import br.com.cborges.bibliotech.modelo.Acervo;
+import br.com.cborges.bibliotech.entity.Acervo;
 
 public class DetalheDoAcervoDto {
 	private Long id;

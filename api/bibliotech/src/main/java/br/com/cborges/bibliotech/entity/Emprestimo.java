@@ -1,4 +1,4 @@
-package br.com.cborges.bibliotech.modelo;
+package br.com.cborges.bibliotech.entity;
 
 import java.time.LocalDateTime;
 

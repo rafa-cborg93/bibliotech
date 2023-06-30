@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.cborges.bibliotech.controller.dto.DetalheDoEmprestimoDto;
 import br.com.cborges.bibliotech.controller.dto.EmprestimoDto;
 import br.com.cborges.bibliotech.controller.form.EmprestimoForm;
-import br.com.cborges.bibliotech.modelo.Emprestimo;
+import br.com.cborges.bibliotech.entity.Emprestimo;
 import br.com.cborges.bibliotech.repository.EmprestimoRepository;
 
 @RestController

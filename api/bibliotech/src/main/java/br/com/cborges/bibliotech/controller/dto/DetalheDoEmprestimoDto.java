@@ -2,7 +2,7 @@ package br.com.cborges.bibliotech.controller.dto;
 
 import java.time.LocalDateTime;
 
-import br.com.cborges.bibliotech.modelo.Emprestimo;
+import br.com.cborges.bibliotech.entity.Emprestimo;
 
 public class DetalheDoEmprestimoDto {
 

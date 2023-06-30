@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.cborges.bibliotech.modelo.Emprestimo;
+import br.com.cborges.bibliotech.entity.Emprestimo;
 
 public class EmprestimoDto {
 

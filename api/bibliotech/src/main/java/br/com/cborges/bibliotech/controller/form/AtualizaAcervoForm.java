@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.cborges.bibliotech.modelo.Acervo;
+import br.com.cborges.bibliotech.entity.Acervo;
 import br.com.cborges.bibliotech.repository.AcervoRepository;
 
 public class AtualizaAcervoForm {

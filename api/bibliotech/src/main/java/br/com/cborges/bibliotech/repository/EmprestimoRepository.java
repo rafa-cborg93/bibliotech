@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.cborges.bibliotech.modelo.Emprestimo;
+import br.com.cborges.bibliotech.entity.Emprestimo;
 
 public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 	

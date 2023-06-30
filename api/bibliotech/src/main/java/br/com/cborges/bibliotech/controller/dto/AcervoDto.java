@@ -3,7 +3,7 @@ package br.com.cborges.bibliotech.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.cborges.bibliotech.modelo.Acervo;
+import br.com.cborges.bibliotech.entity.Acervo;
 
 public class AcervoDto {
 
