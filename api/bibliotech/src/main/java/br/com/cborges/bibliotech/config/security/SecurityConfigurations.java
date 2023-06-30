@@ -1,5 +1,7 @@
 package br.com.cborges.bibliotech.config.security;
 
+import br.com.cborges.bibliotech.service.AutenticacaoService;
+import br.com.cborges.bibliotech.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,22 +1,21 @@
-package br.com.cborges.bibliotech.config.security;
+package br.com.cborges.bibliotech.service;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.cborges.bibliotech.entity.Usuario;
+import br.com.cborges.bibliotech.repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.cborges.bibliotech.entity.Usuario;
-import br.com.cborges.bibliotech.repository.UsuarioRepository;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AutenticacaoService implements UserDetailsService {
 
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
+	private final UsuarioRepository usuarioRepository;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<Usuario> usuario = usuarioRepository.findByEmail(username);

@@ -1,4 +1,4 @@
-package br.com.cborges.bibliotech.controller.dto;
+package br.com.cborges.bibliotech.dto;
 
 public class TokenDto {
 

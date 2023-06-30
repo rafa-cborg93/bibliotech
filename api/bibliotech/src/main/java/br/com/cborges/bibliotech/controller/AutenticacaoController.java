@@ -2,7 +2,7 @@ package br.com.cborges.bibliotech.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,20 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cborges.bibliotech.config.security.TokenService;
-import br.com.cborges.bibliotech.controller.dto.TokenDto;
-import br.com.cborges.bibliotech.controller.form.LoginForm;
+import br.com.cborges.bibliotech.service.TokenService;
+import br.com.cborges.bibliotech.dto.TokenDto;
+import br.com.cborges.bibliotech.dto.LoginForm;
 
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(origins = "http://localhost:4200")
+@RequiredArgsConstructor
 public class AutenticacaoController {
+	private final AuthenticationManager authManager;
 
-	@Autowired
-	private AuthenticationManager authManager;
-	
-	@Autowired
-	private TokenService tokenService;
+	private final TokenService tokenService;
 	
 	@PostMapping
 	public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm form){

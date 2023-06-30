@@ -1,4 +1,4 @@
-package br.com.cborges.bibliotech.config.security;
+package br.com.cborges.bibliotech.service;
 
 import java.util.Date;
 
